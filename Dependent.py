@@ -44,10 +44,10 @@ def MaxSimilarity(split_events):
                     similarity_score.append([value, CalculateScore(split_event, value), key])
                     # print(value, CalculateScore(split_event, value))
     try:
-        similar_event, similarity, situation, from_same_player = max(similarity_score, key=lambda x: x[1])
-        if similarity < 0.6:
+        similar_event, similarity, situation= max(similarity_score, key=lambda x: x[1])
+        if similarity < 0.5:
             return [], 0, None, False
-        return similar_event, similarity, situation, from_same_player
+        return similar_event, similarity[0], situation, similarity[1]
     except Exception:
         return [], 0, None, False
 
@@ -183,7 +183,7 @@ def NoActionTurn(query_event):
 #             continuous_event.pop(0)
         
 #     split_events = SplitEvents(continuous_event)
-#     similarity_event, similarity, situation, from_same_player = MaxSimilarity(split_events)
+#     similarity_event, similarity, situation, from_same_player= MaxSimilarity(split_events)
 #     print(similarity_event)
 #     print(similarity)
 #     print("----------------------")
