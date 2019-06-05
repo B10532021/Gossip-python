@@ -8,25 +8,30 @@ import unicodedata
 import json
 import pandas as pd
 from pymongo import MongoClient
+import random
+from datetime import datetime
+random.seed(datetime.now())
 
 client = MongoClient('localhost', 27017)
 db = client.gossip
-collection = db.sentences
-collection.remove({'who': ''})
+# sentences = list(db.sentences.find({'Situation': "Pon", '$or':[ {'Name':''}, {'Name':"123"}]}))
+# print(sentences[random.randint(0, len(sentences))]['Sentence'])
 
-conversation_dict = pd.read_csv('sentences.csv')
+db.logs.remove()
+collection = db.sentences
+collection.remove({'Name': ''})
+
+conversation_dict = pd.read_csv('testdata/sentences.csv')
+
 for index, value in conversation_dict.iterrows():
-    data = {'uuid':index, 'who': '', 'situation': value['situation'],'sentence': value['sentence']}
+    data = {'uuid':index, 'Name': '', 'Situation': value['situation'],'Sentence': value['sentence']}
     collection.insert(data)
 
 collection = db.situations
 collection.remove()
-with(open(r'continuous_event.json', 'r', encoding='utf-8')) as data:
+with(open(r'continuous_event2.json', 'r', encoding='utf-8')) as data:
     continuous = json.load(data)
 
-index = 0
-for key, values in continuous.items():
-    for value in values:
-        data = {'uuid':index, 'situation': key,'events': value}
-        collection.insert(data)
-        index += 1
+for index, (key, value) in enumerate(continuous.items()):
+    data = {'uuid':index, 'Situation': key,'Events': value}
+    collection.insert(data)

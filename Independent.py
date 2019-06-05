@@ -1,4 +1,7 @@
 import json
+import random
+from datetime import datetime
+
 
 ToTile = dict({
 	"c": 0,
@@ -8,10 +11,10 @@ ToTile = dict({
 	"f": 4, # 花
 })
 
-def CheckDependent(info):
+def CheckInDependent(info):
 	turn = info['Actions'][-1]['Turn']
 	pid = info['Id']
-	action = info['Actions'][-1]['Action']
+	action = info['CurAction']
 	card = info['Actions'][-1]['Card']
 	hand = info['Hand']
 	safe_before = info['SafeBefore']
@@ -26,41 +29,41 @@ def CheckDependent(info):
 				if card in safe_before:
 					action = "Follow"
 
-			# for i := 1; i < 3; i++ {
-			# 	if otherPlayer := room.Players[(currentIdx+4-i)%4]; otherPlayer.CheckEat(card) {
-			# 		otherPlayer.Hand.Add(card)
-			# 		if otherPlayer.StepsToHu > otherPlayer.Hand.CountStepsToHu() {
-			# 			room.BroadcastCoversation(otherPlayer.ID, "WantEat")
-			# 		}
-			# 		otherPlayer.Hand.Sub(card)
-			# 	}
-			# }
+		# for i := 1; i < 3; i++ {
+		# 	if otherPlayer := room.Players[(currentIdx+4-i)%4]; otherPlayer.CheckEat(card) {
+		# 		otherPlayer.Hand.Add(card)
+		# 		if otherPlayer.StepsToHu > otherPlayer.Hand.CountStepsToHu() {
+		# 			room.BroadcastCoversation(otherPlayer.ID, "WantEat")
+		# 		}
+		# 		otherPlayer.Hand.Sub(card)
+		# 	}
+		# }
 
-        # 別人前兩輪不是丟字牌
-	    elif info['ThrowTimes'] < 1 and card['Suit'] != 3: 
+    # 別人前兩輪不是丟字牌
+		elif info['ThrowTimes'] < 1 and ToTile[card[0]] != 3: 
 			action = "ThrowGoodFirst"
-			pid = (pid + rand.Intn(3) + 1) % 4
+			pid = (pid + random.randint(0, 3) + 1) % 4
 
 	elif action == "Draw":
 		if ToTile[card[0]] == 4:
 			# if flowers := room.Players[currentIdx].Flowers.Count(); flowers >= 6:
 			# 	if flowers == CountDeadCard(card):
 			# 		action = "LotsOfFlowers"
+			print(4)
 		elif card in [action['Card'] for action in actions if action['Action'] == "Throw"]:
 			action = "ThrowBefore"
 		elif info['OtherTing'] or  turn >= 36:
 			if CheckIsUseless(card, deadcards):
-				if info['IsTing'] or info['StepToHu'] <= 2:
+				if info['IsTing'] or info['StepsToHu'] <= 2:
 					action = "Useless"
 				else:
 					action = "Safe"
 
-    else if action == "Ting":
-		if turn < 20:
-			action += "Fast"
+	elif action == "Ting" and turn < 20:
+		action += "Fast"
 
-	if action == "Pon" or action == "Eat" or action == "CantEat":
-        if CheckLastNeed(card, deadcards, hand):
+	elif action == "Pon" or action == "Eat" or action == "CantEat":
+		if CheckLastNeed(card, deadcards, hand):
 			action += "LastCard"
 
 	# if action == "Dangerous" or action == "Follow" or action == "Ting" or action == "TingFast" or action == "Ongon" or action == "KeepWin":
@@ -88,8 +91,8 @@ def CheckLastNeed(card, deadcards, hand):
 	return IsLast
 
 
-def CheckIsSafe(card):
-	amount = CountCard(card, deadcard)
+def CheckIsSafe(card, deadcards):
+	amount = CountCard(card, deadcards)
 	if amount <= 2:
 		return False
 	elif amount >= 3:
@@ -105,7 +108,6 @@ def CheckKeepWin(keepwin):
 	
 
 def CountCard(card, cards):
-    #convert card(string) to tile
-    amount = cards[ToTile[card[0]] >> (int(card[1]) * 3)) & 7
-
+	#convert card(string) to tile
+	amount = cards[ToTile[card[0]]] >> (int(card[1]) * 3) & 7
 	return amount
