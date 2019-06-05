@@ -1,0 +1,10 @@
+{
+    "db_ip": "localhost",
+    "db_port": "27017",
+    "server_ip": "127.0.0.1",
+    "server_port": "8080",
+    "alpha":"0.5",
+    "beta":"0.25",
+    "cutting_line": "0.34",
+    "generate_mode": "2"
+}

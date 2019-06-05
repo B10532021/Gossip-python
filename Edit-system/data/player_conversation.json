@@ -1,0 +1,181 @@
+{
+  "conversation": [
+    {
+      "id": 1,
+      "name": "player1",
+      "events": [
+        {
+          "turn": 16,
+          "event": "摸",
+          "from": "",
+          "card": "5A"
+        },
+        {
+          "turn": 16,
+          "event": "進牌",
+          "from": "",
+          "card": "5A"
+        },
+        {
+          "turn": 17,
+          "event": "丟",
+          "from": "",
+          "card": "4B"
+        },
+        {
+          "turn": 22,
+          "event": "吃",
+          "from": "上",
+          "card": "7A"
+        },
+        {
+          "turn": 23,
+          "event": "丟",
+          "from": "",
+          "card": "5C"
+        },
+        {
+          "turn": 23,
+          "event": "聽",
+          "from": "",
+          "card": ""
+        },
+        {
+          "turn": 23,
+          "event": "吃不到",
+          "from": "",
+          "card": "4C"
+        },
+        {
+          "turn": 24,
+          "event": "被跳過",
+          "from": "",
+          "card": ""
+        }
+      ],
+      "sentence": "一直摸不到牌要怎麼打"
+    },
+    {
+      "id": 3,
+      "name": "player1",
+      "events": [
+        {
+          "turn": 9,
+          "event": "摸",
+          "from": "上",
+          "card": "1D"
+        },
+        {
+          "turn": 10,
+          "event": "進牌",
+          "from": "",
+          "card": ""
+        },
+        {
+          "turn": 12,
+          "event": "丟",
+          "from": "",
+          "card": "3B"
+        },
+        {
+          "turn": 13,
+          "event": "摸",
+          "from": "",
+          "card": "2D"
+        },
+        {
+          "turn": 13,
+          "event": "丟",
+          "from": "下",
+          "card": "2D"
+        },
+        {
+          "turn": 14,
+          "event": "吃",
+          "from": "上",
+          "card": "8A"
+        },
+        {
+          "turn": 15,
+          "event": "丟",
+          "from": "",
+          "card": "3D"
+        },
+        {
+          "turn": 15,
+          "event": "摸",
+          "from": "上",
+          "card": "3D"
+        },
+        {
+          "turn": 15,
+          "event": "丟",
+          "from": "",
+          "card": "3D"
+        },
+        {
+          "turn": 15,
+          "event": "吃",
+          "from": "上",
+          "card": "3D"
+        }
+      ],
+      "sentence": "開心，一直吃牌"
+    },
+    {
+      "id": 0,
+      "name": "player1",
+      "events": [
+        {
+          "turn": 9,
+          "event": "被碰",
+          "from": "上",
+          "card": "1D"
+        },
+        {
+          "turn": 10,
+          "event": "被跳過",
+          "from": "",
+          "card": ""
+        },
+        {
+          "turn": 12,
+          "event": "摸",
+          "from": "",
+          "card": "3B"
+        },
+        {
+          "turn": 13,
+          "event": "丟",
+          "from": "",
+          "card": "2D"
+        },
+        {
+          "turn": 13,
+          "event": "被吃",
+          "from": "下",
+          "card": "2D"
+        },
+        {
+          "turn": 14,
+          "event": "碰",
+          "from": "下",
+          "card": "8A"
+        },
+        {
+          "turn": 15,
+          "event": "丟",
+          "from": "",
+          "card": "3D"
+        },
+        {
+          "turn": 15,
+          "event": "被碰",
+          "from": "上",
+          "card": "3D"
+        }
+      ],
+      "sentence": "怎麼剛剛才吃現在又碰我丟的牌阿"
+    }
+  ]
+}
