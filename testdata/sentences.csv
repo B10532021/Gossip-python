@@ -37,21 +37,16 @@ Eat,吃這個不會變胖
 Eat,欸這比我媽煮的乾麵還好吃欸
 Eat,要抓住哥哥的心，要先抓住他的胃阿
 Eat,不准動!我吃
-Eat,你真懂我，這樣都餵的到
-Eat,吃飽飽
 EatLastCard,缺少的才是最好的
-EatLastCard,狗屎運拉
-EatLastCard,連屑屑都要吃乾淨
 EatLastCard,爽拉吃到絕章
 EatLastCard,好險沒拆牌，就整這張牌
 EatLastCard,真好，這也能吃到!
-EatLastCard,甜到爆炸
 EatLastCard,哇，這張牌比你的笑容還甜欸
 EatLastCard,我終於等到你 還好我沒放棄
 EatLastCard,等到我都睡著了
-EatTwoSeq,大吃特吃
-EatTwoSeq,不錯吃，再來喔
-EatTwoSeq,好吃hold不住
+ManyEat,大吃特吃
+ManyEat,不錯吃，再來喔
+ManyEat,好吃hold不住
 EarTwoSeq,謝謝大爺
 EatThreeUp,真的吃到飽
 EatThreeUp,還不夠我還很餓
@@ -161,10 +156,10 @@ BaEat,你很敢喔
 BaEat,你真的要吃嗎
 BaEat,我不會被擊敗，不會被擊敗
 BaEat,好好好~給你吃給你吃
-BaEatTwoSeq,有這麼容易吃的喔
-BaEatTwoSeq,你這樣吃下去都被我養大了嘛
-BaEatTwoSeq,挖靠
-BaEatTwoSeq,再吃啊~ 胖死你
+BaManyEat,有這麼容易吃的喔
+BaManyEat,你這樣吃下去都被我養大了嘛
+BaManyEat,挖靠
+BaManyEat,再吃啊~ 胖死你
 BaEatThreeUp,不要鬧了拉你少吃一點
 BaEatThreeUp,吃三小叮噹拉
 BaEatThreeUp,你再吃，出來面對喔

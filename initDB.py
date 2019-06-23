@@ -21,11 +21,20 @@ db.logs.remove()
 collection = db.sentences
 collection.remove({'Name': ''})
 
-conversation_dict = pd.read_csv('testdata/sentences.csv')
+# conversation_dict = pd.read_csv('testdata/conversation.csv')
+# for index, value in conversation_dict.iterrows():
+#     data = {'uuid':index, 'Name': '', 'Situation': value['situation'],'Sentence': value['sentence']}
+#     collection.insert(data)
 
-for index, value in conversation_dict.iterrows():
-    data = {'uuid':index, 'Name': '', 'Situation': value['situation'],'Sentence': value['sentence']}
-    collection.insert(data)
+with(open(r'testdata/conversation.json', 'r', encoding='utf-8')) as data:
+    conversations = json.load(data)
+
+uuid = 0
+for key, values in conversations.items():
+    for value in values:
+        data = {'uuid':uuid, 'Name': '', 'Situation': key,'Events': value}
+        collection.insert(data)
+        uuid += 1
 
 collection = db.situations
 collection.remove()
