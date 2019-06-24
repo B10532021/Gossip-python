@@ -32,7 +32,7 @@ with(open(r'testdata/conversation.json', 'r', encoding='utf-8')) as data:
 uuid = 0
 for key, values in conversations.items():
     for value in values:
-        data = {'uuid':uuid, 'Name': '', 'Situation': key,'Events': value}
+        data = {'uuid':uuid, 'Name': '', 'Situation': key,'Sentence': value}
         collection.insert(data)
         uuid += 1
 
